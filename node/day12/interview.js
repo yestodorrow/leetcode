@@ -79,3 +79,22 @@ var foo={
     }
 }
 // console.log(typOf (f=foo.bar()))
+
+var x=1;
+if(function (){}){
+    x+=typeof f;
+}
+console.log(x)
+
+
+(
+    function f(){
+        function f(){
+            return 1
+        }
+        return f();
+        function f(){
+            return 2
+        }
+    }
+)()

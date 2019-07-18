@@ -22,10 +22,8 @@
             let y=[...String(x)];
             let flag=true;
             y.map((v,i)=>{
-                
                 if(v!=y[y.length-i-1]){
                     flag=false;
-                    
                 }
             })
             return flag;
