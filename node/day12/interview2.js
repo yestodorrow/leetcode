@@ -64,3 +64,62 @@ fs.rename(
         console.log("renamed")
     }
 )
+
+const os=require("os");
+//platform
+console.log(os.platform());
+//cpu arch
+console.log(os.arch())
+//cpu core info
+console.log(os.cpus())
+console.log(os.freemem())
+console.log(os.totalmem())
+console.log(os.homedir())
+console.log(os.uptime())
+
+
+
+// url
+
+
+const url=require("url");
+
+const myUrl=new URL("http://mywebsite.com:8080/helllo.html?id=100&status=active");
+
+
+//serialize url
+
+console.log(myUrl.href)
+console.log(myUrl.toString())
+//host domain
+console.log(myUrl.host,myUrl.hostname)
+console.log(myUrl.pathname);
+console.log(myUrl.search)
+console.log(myUrl.searchParams)
+myUrl.searchParams.append("abc","hello");
+console.log(myUrl.searchParams)
+
+
+// loop through
+
+myUrl.searchParams.forEach((value,name)=>{
+    console.log(`${name}=${value}`)
+})
+
+const EvenEmitter=require("events");
+
+// create class
+class MyEmitter extends EvenEmitter{}
+
+const myEmitter=new  MyEmitter();
+
+myEmitter.on("event",()=>console.log("event fired"))
+
+// init event
+myEmitter.emit("event")
+myEmitter.emit("event")
+myEmitter.emit("event")
+myEmitter.emit("event")
+
+
+
