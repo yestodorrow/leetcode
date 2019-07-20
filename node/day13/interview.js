@@ -54,7 +54,8 @@ function filter(arr,fn){
             resolve("the long delay has ended")
         },seconds*1000)
     })
-    delay(1).then((msg)=>{
+    delay(1)
+    .then((msg)=>{
         console.log( msg)
     }).then(()=>{
         console.log("this has ended")
