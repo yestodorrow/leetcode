@@ -92,6 +92,51 @@ function BinarySearchTree(){
             this.inOrderTraverseNode(node.right,callback)
         }
     }
+    this.preOrderTraverse=function(callback){
+        this.preOrderTraverseNode(root,callback)
+    }
+    this.preOrderTraverseNode=function(node,callback){
+        if(node!=null){
+            callback(node.key);
+            this.preOrderTraverseNode(node.left,callback)
+            this.preOrderTraverseNode(node.right,callback)
+        }
+    }
+    this.postOrderTraverse=function(callback){
+        this.postOrderTraverseNode(root,callback)
+    };
+    this.postOrderTraverseNode=function(node,callback){
+        if(node!=null){
+            this.postOrderTraverseNode(node.left,callback);
+            this.postOrderTraverseNode(node.right,callback)
+            callback(node.key);
+        }
+        
+    }
+    this.min=function(){
+        this.minNode(root)
+    }
+    this.minNode=function(node){
+        if(node){
+            while(node&&node.left!==null){
+                node=node.left
+            }
+            console.log(node.key)
+           
+        }
+       
+    }
+    this.max=function(){
+        this.maxNode(root)
+    }
+    this.maxNode=function(node){
+        if(node){
+            while(node&&node.right!==null){
+                node=node.right
+            }
+            console.log(node.key)
+        }
+    }
 }
 function printNode(value){
     log(value)
@@ -105,6 +150,8 @@ tree.insert(8);
 tree.insert(10);
 tree.insert(13);
 tree.insert(12);
+tree.insert(121);
+tree.insert(1);
 tree.insert(14);
 tree.insert(20);
 tree.insert(18);
@@ -113,3 +160,12 @@ tree.log()
 //树的遍历
 // 中序遍历
 tree.inOrderTraverse(printNode)
+//先序遍历
+tree.preOrderTraverse(printNode)
+//后序遍历
+tree.postOrderTraverse(printNode)
+//最小值
+tree.min()
+//最大值
+tree.max()
+//搜索特定的值
