@@ -27,12 +27,25 @@ class LinkedList{
 
     //insert first node
     insertFirst(data){
-        this.head=new Node(data,this.head)
+        this.head=new Node(data,this.head);
+        this.size++
     }
 
     //insert last node
 
-
+    insertLast(data){
+        let node=new Node(data);
+        let current;
+        if(!this.head){
+            this.head=node
+        }else{
+            current=this.head;
+            while(current.next){
+                current=current.next;
+            }
+            current.next=node
+        }
+    }
 
     //insert at index
 
@@ -57,4 +70,6 @@ log(n1)
 const ll=new LinkedList();
 ll.insertFirst(100);
 ll.insertFirst(200);
+ll.insertLast(300)
+ll.insertFirst(5)
 log(ll)
